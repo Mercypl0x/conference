@@ -1,5 +1,5 @@
 languageCode = 'en-us'
-title = 'Human Computer Interaction'
+title = 'PWA Conference'
 uglyurls = true
 relativeURLs = true
 disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
@@ -7,149 +7,33 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 [menu]
 
 [[menu.main]]
-  name = 'Home'
-  identifier = 'home'
-  url = '/'
-  weight = -10
-
-[[menu.main]]
-  name = 'Schedule'
-  identifier = 'schedule'
-  url = '/schedule/'
+  name = 'Programme'
+  identifier = 'day'
+  url = '/day/'
   weight = 10
 
 [[menu.main]]
-  name = 'First MC test'
-  identifier = 'first_mc_test'
-  url = '/schedule/m1-slots.html'
-  parent = "schedule"
-  weight = 10
-
-[[menu.main]]
-  name = 'Second MC test'
-  identifier = 'second_mc_test'
-  url = '/schedule/m2-slots.html'
-  parent = "schedule"
+  name = 'Speakers'
+  identifier = 'speaker'
+  url = '/speaker/'
   weight = 20
 
+  
 [[menu.main]]
-  name = 'Grading review'
-  identifier = 'grading_review'
-  url = '/schedule/grading-review.html'
-  parent = "schedule"
-  weight = 30
-
-[[menu.main]]
-  name = 'Exercises'
-  identifier = 'exercises'
-  url = '/exercises/'
-  weight = 20
-
-[[menu.main]]
-  name = 'Exercise 1'
-  identifier = 'exercise_1'
-  url = '/exercises/ex1.html'
-  parent = "exercises"
-  weight = 10
-
-[[menu.main]]
-  name = 'Exercise 2'
-  identifier = 'exercise_2'
-  url = '/exercises/ex2.html'
-  parent = "exercises"
-  weight = 20
-
-[[menu.main]]
-  name = 'Exercise 3'
-  identifier = 'exercise_3'
-  url = '/exercises/ex3.html'
-  parent = "exercises"
-  weight = 30
-
-[[menu.main]]
-  name = 'Exercise 4'
-  identifier = 'exercise_4'
-  url = '/exercises/ex4.html'
-  parent = "exercises"
+  name = 'Team'
+  identifier = 'person'
+  url = '/person/'
   weight = 40
-
+  
 [[menu.main]]
-  name = 'Materials'
-  identifier = 'materials'
-  url = '/materials/'
-  weight = 30
-
-[[menu.main]]
-  name = 'Guides'
-  identifier = 'guides'
-  url = '/guides/'
-  weight = 40
-
-[[menu.main]]
-  name = 'Using Webex'
-  identifier = 'using_webex'
-  url = '/guides/guide-using-webex.html'
-  parent = "guides"
-  weight = 10
-
-[[menu.main]]
-  name = 'Using Sapphire'
-  identifier = 'using_sapphire'
-  url = '/guides/guide-using-sapphire.html'
-  parent = "guides"
-  weight = 20
-
-[[menu.main]]
-  name = 'Using Morae'
-  identifier = 'using_morae'
-  url = '/guides/guide-using-morae.html'
-  parent = "guides"
-  weight = 25
-
-[[menu.main]]
-  name = 'Session Capture'
-  identifier = 'session_capture'
-  url = '/guides/guide-session-capture.html'
-  parent = "guides"
-  weight = 30
-
-[[menu.main]]
-  name = 'Using OBS Studio'
-  identifier = 'using_obs'
-  url = '/guides/guide-using-obs.html'
-  parent = "guides"
-  weight = 40
-
-[[menu.main]]
-  name = 'Video Editing'
-  identifier = 'video_editing'
-  url = '/guides/guide-video-editing.html'
-  parent = "guides"
+  name = 'Sponsors'
+  identifier = 'sponsor'
+  url = '/sponsor/'
   weight = 50
 
-[[menu.main]]
-  name = 'Video Transcoding'
-  identifier = 'video_transcoding'
-  url = '/guides/guide-video-transcoding.html'
-  parent = "guides"
-  weight = 60
-
-[[menu.main]]
-  name = 'Validating HTML'
-  identifier = 'validating_html'
-  url = '/guides/validation'
-  parent = "guides"
-  weight = 70
-
-[[menu.main]]
-  name = 'Previous Reports'
-  identifier = 'previous_reports'
-  url = '/reports/'
-  weight = 50
-
-[[menu.main]]
-  name = 'Tutors'
-  identifier = 'tutors'
-  url = '/tutors/'
-  weight = 60
+  [[menu.main]]
+  name = 'Venues'
+  identifier = 'venue'
+  url = '/venue/'
+  weight = 30
 

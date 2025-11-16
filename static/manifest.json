@@ -1,6 +1,6 @@
 {
-  "name": "Human Computer Interaction",
-  "short_name": "HCI",
+  "name": "PWA Conference",
+  "short_name": "PWA Conf",
   "icons": [
     {
       "src": "icon.svg",
