@@ -31,13 +31,13 @@
   });
 
   function precache() {
-    return caches.open(CACHE).then( cache => {
+    return caches.open(CACHE).then(cache => {
       return cache.addAll(CACHED);
     });
   }
 
   function fromNetwork(request, timeout) {
-    return new Promise( function (fulfill, reject) {
+    return new Promise(function (fulfill, reject) {
 
       const timeoutId = setTimeout(reject, timeout);
 
