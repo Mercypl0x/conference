@@ -5,6 +5,8 @@
 
   if ("serviceWorker" in navigator) {
     const url = new URL(document.currentScript.src, self.location.href);
+    console.log(url.href, url.pathname, basePath(url));
+
     const scope = `${basePath(url)}/`;
     navigator.serviceWorker
       .register(`${scope}sw.js`, { scope })
