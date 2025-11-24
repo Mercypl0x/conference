@@ -2,7 +2,7 @@ languageCode = 'en-us'
 title = 'PWA Conference'
 uglyurls = true
 baseURL = "https://mercypl0x.github.io/conference/"
-relativeURLs = false
+relativeURLs = true
 disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 
 [menu]
