@@ -1,7 +1,7 @@
 <header>
   {{ $.Scratch.Add "path" "" }}
   <ul class="breadcrumb">
-    <li><a href="/" style="filter: grayscale(1); text-decoration: none; font-size: 1.5rem;">⌂</a></li>
+    <li><a href='{{ "/" | relURL }}' style="filter: grayscale(1); text-decoration: none; font-size: 1.5rem;">⌂</a></li>
     {{ range $index, $element := split .RelPermalink "/" }}
       {{ $.Scratch.Add "path" $element }}
       {{ $title := replace $element ".html" "" }}
