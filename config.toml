@@ -3,7 +3,6 @@ title = 'PWA Conference'
 uglyurls = true
 relativeURLs = true
 disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
-publishDir = "docs"
 
 [menu]
 
