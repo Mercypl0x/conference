@@ -19,11 +19,11 @@ files="$(\
   # Collect exclusion parameters
   printf "%s\n" "${excluded[@]}" |
   # Find all files and dirs in docs/ that are not excluded from cache
-  xargs find docs |
+  xargs find public |
   # Ensure directories have trailing slash
   xargs ls --file-type -d |
-  # Remove docs/, wrap with double quotes, append comma
-  sed 's/^docs/"/;s/$/", /' |
+  # Remove public/, wrap with double quotes, append comma
+  sed 's/^public\//"/;s/$/", /' |
   # Sort files to easily verify that both PowerShell and Bash gives same output
   sort
 )"
@@ -34,4 +34,4 @@ echo "Found $(echo "$files" | wc -l) files to cache"
 files="$(echo "$files" | tr -d '\n')"
 
 # Insert list of files into docs/sw.js CACHED variable.
-sed -i "s%let CACHED = \[\]\;%let CACHED = \[$files\]\;%;" docs/sw.js
+sed -i "s%let CACHED = \[\]\;%let CACHED = \[$files\]\;%;" public/sw.js
