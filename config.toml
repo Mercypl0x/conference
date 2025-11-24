@@ -10,31 +10,31 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 [[menu.main]]
   name = 'Programme'
   identifier = 'day'
-  url = '/day/'
+  url = 'day/'
   weight = 10
 
 [[menu.main]]
   name = 'Speakers'
   identifier = 'speaker'
-  url = '/speaker/'
+  url = 'speaker/'
   weight = 20
 
   
 [[menu.main]]
   name = 'Team'
   identifier = 'person'
-  url = '/person/'
+  url = 'person/'
   weight = 40
   
 [[menu.main]]
   name = 'Sponsors'
   identifier = 'sponsor'
-  url = '/sponsor/'
+  url = 'sponsor/'
   weight = 50
 
   [[menu.main]]
   name = 'Venues'
   identifier = 'venue'
-  url = '/venue/'
+  url = 'venue/'
   weight = 30
 
