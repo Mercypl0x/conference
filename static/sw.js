@@ -2,57 +2,54 @@
   const MS_WAIT = 400;
   const CACHE = 'cached';
 
+  // This array gets replaced by gencache.sh during CI
+  // Example: let CACHED = ["css/foo.css", "index.html", ...];
   let CACHED = [];
 
-  function fileName(url) {
-    return url.href.replace(/^.*[\\\/]/, '');
-  }
+  self.addEventListener("install", (event) => {
+    // Turn relative paths into absolute URLs under the SW scope.
+    // This works for GitHub Pages project sites (/conference/) and root sites alike.
+    const scope = self.registration.scope; // e.g. https://mercypl0x.github.io/conference/
+    CACHED = CACHED.map((f) => new URL(f, scope).toString());
 
-  function basePath(url) {
-    return url.pathname.substring(0, url.pathname.lastIndexOf("/"));
-  }
-
-  self.addEventListener("install", event => {
-    const url = new URL(self.location);
-
-    if (url !== `/${fileName(url)}`) {
-      const path = basePath(url);
-      CACHED = CACHED.map((f) => `${path}${f}`);
-    }
     event.waitUntil(precache());
+    self.skipWaiting();
   });
 
-  self.addEventListener('fetch', event => {
+  self.addEventListener("activate", (event) => {
+    event.waitUntil(self.clients.claim());
+  });
+
+  self.addEventListener('fetch', (event) => {
     event.respondWith(
-      fromNetwork(event.request, MS_WAIT).catch(function () {
-        return fromCache(event.request);
-      })
+      fromNetwork(event.request, MS_WAIT).catch(() => fromCache(event.request))
     );
   });
 
   function precache() {
-    return caches.open(CACHE).then(cache => {
-      return cache.addAll(CACHED);
-    });
+    return caches.open(CACHE).then((cache) => cache.addAll(CACHED));
   }
 
   function fromNetwork(request, timeout) {
-    return new Promise(function (fulfill, reject) {
-
+    return new Promise((fulfill, reject) => {
       const timeoutId = setTimeout(reject, timeout);
 
-      fetch(request).then(response => {
-        clearTimeout(timeoutId);
-        fulfill(response);
-      }, reject);
+      fetch(request).then(
+        (response) => {
+          clearTimeout(timeoutId);
+          fulfill(response);
+        },
+        (err) => {
+          clearTimeout(timeoutId);
+          reject(err);
+        }
+      );
     });
   }
 
   function fromCache(request) {
-    return caches.open(CACHE).then(cache => {
-      return cache.match(request).then(matching => {
-        return matching || Promise.reject('no-match');
-      });
-    });
+    return caches.open(CACHE).then((cache) =>
+      cache.match(request).then((matching) => matching || Promise.reject('no-match'))
+    );
   }
 })();
