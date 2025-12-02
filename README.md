@@ -31,9 +31,9 @@ The PWA description and other information can be customized in the manifest for 
 The PWA caching strategy is currently configured to first attempt requesting the file, if that fails within 400 ms, it will use the offline cache instead.
 
 The list of files to cache for the PWA need to be generated after building the website with Hugo.
-Both a PowerShell and a Bash version of the script exist (`gencache.ps1` and `gencache.sh`).
-To configure which files are excluded from the cache, the scripts can be modified.
-The file filters are located in the beginning of the scripts and new lines of the same format can be added to add filters.
+A Bash version of the script exists (`gencache.sh`).
+To configure which files are excluded from the cache, the script can be modified.
+The file filter is located in the beginning of the script and new lines of the same format can be added to add filters.
 Running the script will modify `public/sw.js`, and will only work if the gencache script has not already been run.
 
 ## Acknowledgment
