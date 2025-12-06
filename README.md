@@ -17,6 +17,8 @@
   The list of files will be inserted into `public/sw.js`. For more details, see the PWA section below.
 5. The generated `public` directory can then be uploaded to any static file host.
 
+When you deploy a new version of the website and you want the cache to be updated, don't forget to change the `CACHE_VERSION` in `sw.js` so that the service worker can recognize the change.
+
 ## Customizing
 ### Menu
 The menu is defined in `config.toml`.
