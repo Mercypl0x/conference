@@ -1,7 +1,7 @@
 (function () {
   const MS_WAIT = 400;
 
-  const CACHE_VERSION = 'v2';
+  const CACHE_VERSION = 'v3';
   const CACHE = `cached-${CACHE_VERSION}`;
 
   // This array gets replaced by gencache.sh during CI
