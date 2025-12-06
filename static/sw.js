@@ -1,6 +1,8 @@
 (function () {
   const MS_WAIT = 400;
-  const CACHE = 'cached';
+
+  const CACHE_VERSION = 'v1';
+  const CACHE = `cached-${CACHE_VERSION}`;
 
   // This array gets replaced by gencache.sh during CI
   // Example: let CACHED = ["css/foo.css", "index.html", ...];
@@ -17,7 +19,19 @@
   });
 
   self.addEventListener("activate", (event) => {
-    event.waitUntil(self.clients.claim());
+    event.waitUntil(
+      (async () => {
+        const keys = await caches.keys();
+
+        await Promise.all(
+          keys
+            .filter((key) => key !== CACHE)
+            .map((key) => caches.delete(key))
+        );
+
+        await self.clients.claim();
+      })()
+    );
   });
 
   self.addEventListener('fetch', (event) => {
